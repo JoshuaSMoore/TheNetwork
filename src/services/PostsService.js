@@ -8,14 +8,12 @@ class PostsService {
     AppState.posts = []
     logger.log('query', query)
     const res = await api.get('api/posts' + convertToQuery(query))
-    logger.log('posts res', res)
     AppState.posts = res.data.posts.map(p => new Post(p))
   }
 
   async createPost(newPost) {
     const res = await api.post('api/posts', newPost)
     AppState.posts.unshift(new Post(res.data))
-    logger.log('create res', res)
   }
 
   async deleteBlog(postId) {
@@ -24,10 +22,30 @@ class PostsService {
     AppState.posts = AppState.posts.filter(p => p.id !== postId)
   }
 
-  async findPostsByQuery(query) {
+  async findPostsByQuery(query = {}) {
     const res = await api.get(`api/posts/?query=${query}`)
-    logger.log('the res', res)
+    AppState.newer = res.data.newer
+    AppState.older = res.data.older
+    logger.log(res, 'pages')
     AppState.posts = res.data.posts.map(p => new Post(p))
+  }
+
+  async getOlderPost(older) {
+    const res = await api.get('api/posts/older')
+    AppState.older = res.data.older
+    logger.log(res, 'older')
+    AppState.posts = res.data.posts.map(p => new Post(p))
+  }
+
+  async likePost(id) {
+    await api.post(`api/posts/${id}/like`)
+    this.getPosts()
+  }
+
+  async deletePost(postId) {
+    const res = await api.delete('api/posts/' + postId)
+    logger.log('delete res', res)
+    AppState.posts = AppState.posts.filter(p => p.id !== postId)
   }
 }
 

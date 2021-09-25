@@ -6,5 +6,8 @@ export class Post {
     this.imgUrl = data.imgUrl
     this.creator = data.creator
     this.creatorId = data.creatorId
+    this.older = data.older
+    this.likes = data.likes
+    this.likeIds = data.likeIds
   }
 }

@@ -1,11 +1,23 @@
 <template>
   <div class="container-fluid">
+    <div class="profile-header" v-if="profile">
+      <div class="row cover-img" :style="{backgroundImage: `url(${profile.coverImg})`}">
+      </div>
+    </div>
+    <div v-else>
+      <h4 class="text-light">
+        ....Loading
+      </h4>
+    </div>
     <div class="row" v-if="posts.length > 0">
       <PostCard v-for="p in posts" :key="p.id" :post="p" />
     </div>
-    <div class="row" v-else>
+    <div v-else>
       <h3>No Post...</h3>
     </div>
+    <!-- <div style="justify-content-end">
+      <Ad v-for="a in ad" :key="a.id" :ad="a" />
+    </div> -->
   </div>
 </template>
 
@@ -41,4 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.img{
+  max-width: 500px;
+}
 </style>
