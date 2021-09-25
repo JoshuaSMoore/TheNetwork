@@ -2,22 +2,26 @@
   <div class="col-md-4 mb-5">
     <div class="card border-warning mb-3; bg-primary" style="width: 24rem; height: 26rem">
       <div class="on-hover position-absolute" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
-        <i class="mdi mdi-delete text-danger f-20 selectable" @click="deletePost()"></i>
+        <button class="btn btn-primary" type="button" @click="deletePost()">
+          Delete
+        </button>
       </div>
       <div class="on-hover position-absolute" style="left: 1rem; top: 1rem">
         <button>
           <i class="mdi mdi-thumb-up text-primary" @click.prevent="likePost()">{{ post.likeIds.length }}</i>
         </button>
       </div>
-      <p class="card-text">
+      <p class="card-text text-center">
         {{ post.body }}
       </p>
+      {{ post.createdAt }}
       <div class="card-body text-center" style="">
         <img :src="post.imgUrl" class="postImg img-fluid" alt="...">
       </div>
       <div class="text-center">
-        <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="btn btn-dark">
+        <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="btn btn">
           <img class="user-image" :src="post.creator.picture" />
+          {{ post.creator.name }}
         </router-link>
       </div>
     </div>
@@ -42,6 +46,7 @@ export default {
     return {
       account: computed(() => AppState.account),
       posts: computed(() => AppState.post),
+
       async deletePost() {
         try {
           await postsService.deletePost(props.post.id)
@@ -64,7 +69,7 @@ export default {
 
 <style lang="scss" scoped>
 .user-image{
-  max-height: 3rem;
+  max-height: 4rem;
 }
 .postImg{
   max-height: 15rem;

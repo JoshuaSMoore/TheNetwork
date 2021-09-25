@@ -1,6 +1,6 @@
 <template>
-  <div class="ads-page">
-    <img :src="ad.tall">
+  <div class="p-2 text-center">
+    <img :src="pic.square" alt="" class="adpic">
   </div>
 </template>
 
@@ -10,19 +10,22 @@ import { AppState } from '../AppState.js'
 
 export default {
   props: {
-    ad: {
+    pic: {
       type: Object,
       required: true
     }
   },
-  setup(props) {
+  setup() {
     return {
-      ads: computed(() => AppState.ads)
+      pics: computed(() => AppState.pics)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.adpic{
+  max-height: 15rem;
+}
 
 </style>

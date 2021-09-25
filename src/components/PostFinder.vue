@@ -18,7 +18,7 @@
     </div>
   </form>
   <div>
-    <button @click="getNewPost()" class="btn btn-secondary elevation-5">
+    <button :disabled="currentPage === 1" @click="getNewPost()" class="btn btn-secondary elevation-5">
       Newer
     </button>
     <button @click="getOlderPost()" class="btn btn-secondary elevation-5">
@@ -40,8 +40,7 @@ export default {
     const query = ref('')
     return {
       query,
-      newer: computed(() => AppState.newer),
-      older: computed(() => AppState.older),
+      currentPage: computed(() => AppState.currentPage),
       async findPosts() {
         try {
           await postsService.findPostsByQuery(query.value)

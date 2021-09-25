@@ -3,7 +3,7 @@
     <Navbar />
   </header>
   <main>
-    <div class="row d-flex">
+    <div class="row d-flex viewport">
       <div class="col-md-2">
         <SideBar />
       </div>
@@ -27,12 +27,12 @@
 <script>
 import { computed } from 'vue'
 import { AppState } from './AppState'
-// import 'bootswatch/dist/[vapor]/bootstrap.min.css'
 export default {
   name: 'App',
   setup() {
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      pics: computed(() => AppState.pics)
     }
   }
 }

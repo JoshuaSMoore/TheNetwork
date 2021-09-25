@@ -31,9 +31,6 @@
       <PostCard v-for="p in posts" :key="p.id" :post="p" />
     </div>
   </div>
-  <!-- <div class="col-md-4 col-sm">
-    <Ad v-for="a in ad" :key="a.id" :ad="a" />
-  </div> -->
   <div v-if="posts.length <= 0">
     <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
@@ -48,7 +45,6 @@ import Pop from '../utils/Pop.js'
 import { AppState } from '../AppState.js'
 import { useRoute } from 'vue-router'
 import { profilesService } from '../services/ProfilesService.js'
-import { adsService } from '../services/AdsService.js'
 
 export default {
   setup() {
@@ -61,11 +57,11 @@ export default {
         Pop.toast(error, 'error')
       }
     }
+
     watchEffect(async() => {
       if (route.params.id) {
         await profilesService.getProfileById(route.params.id)
         getPosts()
-        // await adsService.getAds()
       }
     })
     return {
@@ -73,7 +69,6 @@ export default {
       account: computed(() => AppState.account),
       posts: computed(() => AppState.posts),
       user: computed(() => AppState.user)
-      // ads: computed(() => AppState.ads)
     }
   }
 }

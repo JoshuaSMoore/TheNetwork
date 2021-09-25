@@ -18,8 +18,6 @@ class PostsService {
 
   async findPostsByQuery(query = {}) {
     const res = await api.get(`api/posts/?query=${query}`)
-    AppState.newer = res.data.newer
-    AppState.older = res.data.older
     logger.log(res, 'pages')
     AppState.posts = res.data.posts.map(p => new Post(p))
   }
@@ -27,7 +25,7 @@ class PostsService {
   async getOlderPost() {
     AppState.posts = []
     AppState.postsData = {}
-    AppState.currentPage--
+    AppState.currentPage++
     const res = await api.get(`api/posts?page=${AppState.currentPage}`)
     logger.log(res, 'older')
     AppState.posts = res.data.posts.map(p => new Post(p))
@@ -36,7 +34,7 @@ class PostsService {
   async getNewPost() {
     AppState.posts = []
     AppState.postsData = {}
-    AppState.currentPage++
+    AppState.currentPage--
     const res = await api.get(`api/posts?page=${AppState.currentPage}`)
     AppState.postsData = res.data
     logger.log(res, 'newpage')
