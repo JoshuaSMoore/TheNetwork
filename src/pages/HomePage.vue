@@ -1,5 +1,5 @@
 <template>
-  <div class="home container-fluid">
+  <div class="container-fluid">
     <div class="row">
       <PostCard v-for="p in posts" :key="p.id" :post="p" />
     </div>

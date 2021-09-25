@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-4 mb-5">
-    <div class="card p-3 shadow" style="width: 24rem; height: 26rem">
+    <div class="card border-warning mb-3; bg-primary" style="width: 24rem; height: 26rem">
       <div class="on-hover position-absolute" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
         <i class="mdi mdi-delete text-danger f-20 selectable" @click="deletePost()"></i>
       </div>
@@ -16,7 +16,7 @@
         <img :src="post.imgUrl" class="postImg img-fluid" alt="...">
       </div>
       <div class="text-center">
-        <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="btn btn-primary">
+        <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="btn btn-dark">
           <img class="user-image" :src="post.creator.picture" />
         </router-link>
       </div>

@@ -27,6 +27,7 @@
 <script>
 import { computed } from 'vue'
 import { AppState } from './AppState'
+// import 'bootswatch/dist/[vapor]/bootstrap.min.css'
 export default {
   name: 'App',
   setup() {
@@ -36,6 +37,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
