@@ -16,12 +16,6 @@ class PostsService {
     AppState.posts.unshift(new Post(res.data))
   }
 
-  async deleteBlog(postId) {
-    const res = await api.delete('api/posts/' + postId)
-    logger.log('delete res', res)
-    AppState.posts = AppState.posts.filter(p => p.id !== postId)
-  }
-
   async findPostsByQuery(query = {}) {
     const res = await api.get(`api/posts/?query=${query}`)
     AppState.newer = res.data.newer
@@ -30,10 +24,22 @@ class PostsService {
     AppState.posts = res.data.posts.map(p => new Post(p))
   }
 
-  async getOlderPost(older) {
-    const res = await api.get('api/posts/older')
-    AppState.older = res.data.older
+  async getOlderPost() {
+    AppState.posts = []
+    AppState.postsData = {}
+    AppState.currentPage--
+    const res = await api.get(`api/posts?page=${AppState.currentPage}`)
     logger.log(res, 'older')
+    AppState.posts = res.data.posts.map(p => new Post(p))
+  }
+
+  async getNewPost() {
+    AppState.posts = []
+    AppState.postsData = {}
+    AppState.currentPage++
+    const res = await api.get(`api/posts?page=${AppState.currentPage}`)
+    AppState.postsData = res.data
+    logger.log(res, 'newpage')
     AppState.posts = res.data.posts.map(p => new Post(p))
   }
 

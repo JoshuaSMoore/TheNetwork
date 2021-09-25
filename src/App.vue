@@ -2,26 +2,26 @@
   <header>
     <Navbar />
   </header>
-  <main class="container-fluid">
-    <div class="row">
-      <SideBar class="col-md-2 sidebar" />
-      <div class="col-md-10 viewport">
-        <router-view />
+  <main>
+    <div class="row d-flex">
+      <div class="col-md-2">
+        <SideBar />
       </div>
-      <div class="add-post">
+      <div class="col-md-10">
+        <router-view />
       </div>
     </div>
   </main>
   <footer>
-    <Modal>
-      <template #modal-title>
-        <h4>Post Form</h4>
-      </template>
-      <template #modal-body>
-        <PostForm />
-      </template>
-    </Modal>
   </footer>
+  <Modal>
+    <template #modal-title>
+      <h4>Post Form</h4>
+    </template>
+    <template #modal-body>
+      <PostForm />
+    </template>
+  </Modal>
 </template>
 
 <script>

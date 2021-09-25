@@ -17,12 +17,12 @@
       </button>
     </div>
   </form>
-  <div class="div">
-    <button class="btn bg-dark me-1 selectable text-white" @click="getNewPost(newer)" type="submit">
-      Newer Posts {{ newer }}
+  <div>
+    <button @click="getNewPost()" class="btn btn-secondary elevation-5">
+      Newer
     </button>
-    <button class="btn bg-light me-1 selectable text-white" @click="getOldPost()" type="submit">
-      {{ older }}
+    <button @click="getOlderPost()" class="btn btn-secondary elevation-5">
+      Older
     </button>
   </div>
 </template>
@@ -49,19 +49,19 @@ export default {
           Pop.toast(error.message, 'error')
         }
       },
-      async getNewPost(newer) {
+      postsData: computed(() => AppState.postsData),
+      async getOlderPost() {
         try {
-          await postsService.findPostsByQuery(query.value, newer)
+          await postsService.getOlderPost()
         } catch (error) {
-          Pop.toast(error.message, 'error')
+          Pop.toast('error', error)
         }
       },
-      async getOldPost() {
+      async getNewPost() {
         try {
-          await postsService.findPostsByQuery(query.value)
-          useRoute(query.value)
+          await postsService.getNewPost()
         } catch (error) {
-          Pop.toast(error.message, 'error')
+          Pop.toast('error', error)
         }
       }
     }

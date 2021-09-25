@@ -3,9 +3,9 @@
     <div class="row">
       <PostCard v-for="p in posts" :key="p.id" :post="p" />
     </div>
-    <div class="col-2 text-end">
+    <!-- <div class="col-2 text-end">
       <Ad v-for="a in ad" :key="a.id" :ad="a" />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -20,14 +20,14 @@ export default {
     onMounted(async() => {
       try {
         await postsService.getPosts()
-        await adsService.getAds()
+        // await adsService.getAds()
       } catch (error) {
         Pop.toast(error, 'error')
       }
     })
     return {
-      posts: computed(() => AppState.posts),
-      ad: computed(() => AppState.ads)
+      posts: computed(() => AppState.posts)
+      // ad: computed(() => AppState.ads)
     }
   }
 }
