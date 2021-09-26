@@ -7,7 +7,7 @@
           Edit Profile
         </button>
       </div>
-      <div class="col-6 text-start">
+      <div class="col-5 text-start">
         <div class="div edit-profile card border-light mb-3">
           <div class=" card-body">
             <div class="text-start">
@@ -51,20 +51,23 @@
           </div>
         </div>
       </div>
-      <div class="col-6 d-flex justify-content-end visually-hidden edit-field" id="edit-profile">
+      <div class="col-2 text-center">
+        <img src="https://bestanimations.com/media/dancers/127847890funny-panda-dancing.gif" alt="">
+      </div>
+      <div class="col-5 d-flex justify-content-end visually-hidden edit-field" id="edit-profile">
         <div>
           <div class="card border-light mb-3">
             <div class="card-body account-card">
               <fieldset>
                 <legend>
                   <form @submit.prevent="updateAccount()">
+                    <h5> Change profile Username</h5>
+                    <input type="text" v-model="account.name" placeholder="Name"><br />
                     <h5> Change your cover image</h5>
                     <input type="text" v-model="account.coverImg"><br />
-                    <h5> Change profile Pic</h5>
+                    <h5> Change profile Picture</h5>
                     <input type="text" v-model="account.github" placeholder="Github"><br />
                     <h5> Change your Linkedin</h5>
-                    <input type="text" v-model="account.name" placeholder="Name"><br />
-                    <h5> Change profile Pic</h5>
                     <input type="text" v-model="account.picture" placholder="Picture"><br />
                     <h5> Change your Github</h5>
                     <input type="text" v-model="account.linkedin" placeholder="Linkedin"><br />
