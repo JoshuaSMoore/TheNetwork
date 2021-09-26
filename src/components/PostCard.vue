@@ -11,12 +11,13 @@
           <i class="mdi mdi-thumb-up text-primary" @click.prevent="likePost()">{{ post.likeIds.length }}</i>
         </button>
       </div>
-      <p class="card-text text-center">
-        {{ post.body }}
-      </p>
-      {{ post.createdAt }}
       <div class="card-body text-center" style="">
         <img :src="post.imgUrl" class="postImg img-fluid" alt="...">
+      </div>
+      <div class="div">
+        <p class="card-text text-center style=" style="height: 5rem; overflow-y: scroll;">
+          {{ post.body }}
+        </p>
       </div>
       <div class="text-center">
         <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="btn btn">
@@ -24,6 +25,7 @@
           {{ post.creator.name }}
         </router-link>
       </div>
+      <small class="text-muted">Added: {{ new Date(post.createdAt).toDateString() }}</small>
     </div>
   </div>
 </template>
@@ -72,6 +74,6 @@ export default {
   max-height: 4rem;
 }
 .postImg{
-  max-height: 15rem;
+  max-height: 12rem;
 }
 </style>

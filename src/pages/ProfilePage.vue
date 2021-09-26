@@ -13,7 +13,8 @@
           <i class="mdi mdi-school f-20 " title="Alumni"></i>
         </div>
         <div class="" v-else>
-          <i class="mdi mdi-chair-school f-20 " title="Still Learning"></i>
+          Graduated:
+          <i class="mdi mdi-book-open-variant f-20 " title="Not Yet"></i>
         </div>
         <p class="card-text">
           {{ profile.bio }}<br />

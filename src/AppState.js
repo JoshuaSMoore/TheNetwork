@@ -9,5 +9,6 @@ export const AppState = reactive({
   creator: null,
   pics: [],
   postsData: {},
-  currentPage: 1
+  currentPage: 1,
+  updated: {}
 })

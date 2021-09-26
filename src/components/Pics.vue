@@ -1,6 +1,6 @@
 <template>
-  <div class="p-2 text-center">
-    <img :src="pic.square" alt="" class="adpic">
+  <div class="p-2 text-center img-fluid">
+    <img :src="pic.square" alt="" class="adpic img-fluidd">
   </div>
 </template>
 

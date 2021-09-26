@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar d-md-flex flex-column justify-content-evenly bg-dark">
+  <div class="sidebar d-md-flex flex-column justify-content-between bg-dark">
     <div class="text-white py-2 text-center">
       <router-link class="navbar-brand" :to="{ name: 'Home' }">
         <h3 class="text-center selectable">
@@ -11,9 +11,11 @@
       <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
         Create Post
       </button>
-      <div class="myprofile">
-        <div class="p-4 text-center">
-          <router-link :to="{ name: 'Account'}" class="btn text-success lighten-30 selectable text-uppercase">
+      <div>
+        <div class="pt-5 text-center">
+          <router-link :to="{ name: 'Profile', params: {id: account.id}}" class="btn text-success lighten-30 selectable text-uppercase">
+            <img :src="account.picture" width="100" style="image-fluid" />
+            <br>
             My Profile
           </router-link>
         </div>
@@ -34,7 +36,8 @@ export default {
   setup() {
     return {
       user: computed(() => AppState.user),
-      pics: computed(() => AppState.pics)
+      pics: computed(() => AppState.pics),
+      account: computed(() => AppState.account)
     }
   }
 }
