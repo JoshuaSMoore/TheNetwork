@@ -112,7 +112,7 @@ a:hover {
   border-bottom-right-radius: 0;
 }
 .navbar{
-  background-color: #1ba2f6d5;
+  background-color: #369edf00;
 }
 
 </style>

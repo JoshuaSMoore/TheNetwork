@@ -11,9 +11,10 @@
              name="search"
              required
              class="form-control bg-white border-0"
-             placeholder="search"
+             placeholder="Search Posts"
       >
-      <button class="btn px-2 py-0" type="submit">
+      <button class="btn btn-primary p-1 rounded" type="submit">
+        Search
       </button>
     </div>
   </form>

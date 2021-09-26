@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row justify-content-evenly">
       <div class = "text-center">
     <button :disabled="currentPage === 1" @click="getNewPost()" class="btn btn-secondary elevation-5">
       Newer
@@ -8,9 +8,6 @@
     <button @click="getOlderPost()" class="btn btn-secondary elevation-5">
       Older
     </button>
-  </div>
-  <div class="div">
-
   </div>
   <div class="row scrollable-y"></div>
       <PostCard v-for="p in posts" :key="p.id" :post="p" />
@@ -33,6 +30,7 @@ import Pop from '../utils/Pop.js'
 import { AppState } from '../AppState.js'
 import { picsService } from '../services/picsService.js'
 export default {
+  name: 'Home',
   setup() {
     onMounted(async() => {
       try {

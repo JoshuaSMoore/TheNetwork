@@ -51,7 +51,10 @@ export default {
 
       async deletePost() {
         try {
+          const yes = await Pop.confirm('Are you sure?')
+          if (!yes) { return }
           await postsService.deletePost(props.post.id)
+          Pop.toast('Gone Forever', 'success')
         } catch (error) {
           Pop.toast(error, 'error')
         }

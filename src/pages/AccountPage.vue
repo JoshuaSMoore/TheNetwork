@@ -66,11 +66,11 @@
                     <h6> Change your cover image</h6>
                     <input type="text" v-model="account.coverImg"><br />
                     <h6> Change profile Picture</h6>
-                    <input type="text" v-model="account.github" placeholder="Github"><br />
-                    <h6> Change your Linkedin</h6>
                     <input type="text" v-model="account.picture" placholder="Picture"><br />
+                    <h6> Change your Linkedin</h6>
+                     <input type="text" v-model="account.linkedin" placeholder="Linkedin"><br />
                     <h6> Change your Github</h6>
-                    <input type="text" v-model="account.linkedin" placeholder="Linkedin"><br />
+                    <input type="text" v-model="account.github" placeholder="Github"><br />
                     <h6> Cohort</h6>
                     <input type="text" v-model="account.class" placeholder="Class"><br />
                     <h6> Have you graduated?</h6>

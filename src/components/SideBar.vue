@@ -14,7 +14,7 @@
       <div>
         <div class="pt-5 text-center">
           <router-link :to="{ name: 'Profile', params: {id: account.id}}" class="btn text-success lighten-30 selectable text-uppercase">
-            <img :src="account.picture" width="100" style="image-fluid" />
+            <img :src="account.picture" width="130" style="image-fluid" />
             <br>
             My Profile
           </router-link>
@@ -44,6 +44,11 @@ export default {
 </script>
 
 <style>
+@media(max-width: 900px){
+  .sidebar{
+    position: relative;
+  }
+}
 .sidebar{
   height: 85vh;
   position: fixed;

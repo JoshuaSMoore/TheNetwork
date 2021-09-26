@@ -45,8 +45,11 @@ class PostsService {
   }
 
   async likePost(id) {
-    await api.post(`api/posts/${id}/like`)
-    this.getPosts()
+    const res = await api.post(`api/posts/${id}/like`)
+    logger.log('likes', res.data.likes)
+    const i = AppState.posts.findIndex(p => p.id === id)
+    AppState.posts.splice(i, 1, new Post(res.data))
+    AppState.posts = [...AppState.posts]
   }
 
   async deletePost(postId) {
