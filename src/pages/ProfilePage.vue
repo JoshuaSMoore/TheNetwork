@@ -2,6 +2,7 @@
   <div class="container-fluid text-center font-style">
      <div class="profile-header" v-if="profile">
       <div class="row cover-img img-fluid" :style="{backgroundImage: `url(${profile.coverImg})`}">
+       
         <div class="col-3 ">
 
            <h3 class="text-center font-style">
@@ -30,12 +31,19 @@
           <a :href="profile.github"><i class="mdi mdi-github f-20 selectable"></i></a>
           <a :href="profile.linkedin"><i class="mdi mdi-linkedin f-20 selectable"></i></a>
         </p>
+        
             </div>
         </div>
+        
           </div>
       </div>
     </div>
-    </div>
+<div v-else>
+      <h4 class="text-light">
+        ....Loading
+      </h4>
+    </div>   
+  </div> 
   <div class="container-fluid">
      <button :disabled="currentPage === 1" @click="getNewPost()" class="btn btn-secondary elevation-5">
       Newer
