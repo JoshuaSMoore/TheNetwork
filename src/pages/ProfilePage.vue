@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid text-center">
-    <div class=" row mb-3 text-light tshadow" :style="backgroundImage">
+    <div class=" row mb-3 text-light tshadow">
       <img :src="profile.coverImg" class="cover-img">
     </div>
     <div class="row justify-content-center">
@@ -30,11 +30,11 @@
   <div class="container-fluid">
     <div class="row p-3s">
       <PostCard v-for="p in posts" :key="p.id" :post="p" />
-    </div>
-  </div>
-  <div v-if="posts.length <= 0">
-    <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
+      <div v-if="posts.length > 0">
+      </div>
+      <div class="row" v-else>
+        <h2>No Posts 😪.</h2>
+      </div>
     </div>
   </div>
 </template>
@@ -50,7 +50,6 @@ import { profilesService } from '../services/ProfilesService.js'
 export default {
   setup() {
     const route = useRoute()
-    const profile = computed(() => AppState.profile)
     async function getPosts() {
       try {
         await postsService.getPosts({ creatorId: route.params.id })
@@ -66,10 +65,10 @@ export default {
       }
     })
     return {
-      profile,
-      account: computed(() => AppState.account),
+      user: computed(() => AppState.user),
+      profile: computed(() => AppState.profile),
       posts: computed(() => AppState.posts),
-      user: computed(() => AppState.user)
+      postsData: computed(() => AppState.postsData)
     }
   }
 }

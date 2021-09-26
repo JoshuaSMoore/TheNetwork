@@ -1,6 +1,6 @@
 <template>
-  <div class="col-md-4 mb-5">
-    <div class="card border-warning mb-3; bg-primary" style="width: 24rem; height: 26rem">
+  <div class="col-md-4 mb-5 pt-4">
+    <div class="card border-warning mb-3; bg-primary" style="width: 24rem; height: 27rem">
       <div class="on-hover position-absolute" style="right: 1rem; top: 1rem" v-if="account.id == post.creatorId">
         <button class="btn btn-primary" type="button" @click="deletePost()">
           Delete
@@ -15,17 +15,17 @@
         <img :src="post.imgUrl" class="postImg img-fluid" alt="...">
       </div>
       <div class="div">
-        <p class="card-text text-center style=" style="height: 5rem; overflow-y: scroll;">
+        <p class="card-text text-center style=" style="height: 3rem; overflow-y: scroll;">
           {{ post.body }}
         </p>
+        <div class="text-center">
+          <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="btn btn">
+            <img class="user-image" :src="post.creator.picture" />
+            {{ post.creator.name }}
+          </router-link>
+          <small class="text-muted">Added: {{ new Date(post.createdAt).toDateString() }}</small>
+        </div>
       </div>
-      <div class="text-center">
-        <router-link :to="{name: 'Profile', params: {id: post.creatorId}}" class="btn btn">
-          <img class="user-image" :src="post.creator.picture" />
-          {{ post.creator.name }}
-        </router-link>
-      </div>
-      <small class="text-muted">Added: {{ new Date(post.createdAt).toDateString() }}</small>
     </div>
   </div>
 </template>
@@ -74,6 +74,6 @@ export default {
   max-height: 4rem;
 }
 .postImg{
-  max-height: 12rem;
+  max-height: 14rem;
 }
 </style>

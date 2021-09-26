@@ -33,7 +33,6 @@ import { postsService } from '../services/PostsService.js'
 import Pop from '../utils/Pop.js'
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState.js'
-import { useRoute } from 'vue-router'
 
 export default {
   setup() {

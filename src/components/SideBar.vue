@@ -1,11 +1,11 @@
 <template>
   <div class="sidebar d-md-flex flex-column justify-content-between bg-dark">
     <div class="text-white py-2 text-center">
-      <router-link class="navbar-brand" :to="{ name: 'Home' }">
-        <h3 class="text-center selectable">
-          TheNetwork
-        </h3>
-      </router-link>
+      <div class="searchbar">
+        <li>
+          <PostFinder />
+        </li>
+      </div>
     </div>
     <div class="text-center">
       <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#post-form">
@@ -45,7 +45,7 @@ export default {
 
 <style>
 .sidebar{
-  min-height: 100vh;
-  max-height: 100vh;
+  height: 85vh;
+  position: fixed;
 }
 </style>

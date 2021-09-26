@@ -2,7 +2,7 @@
   <header>
     <Navbar />
   </header>
-  <main>
+  <main class="main-back">
     <div class="row d-flex viewport">
       <div class="col-md-2">
         <SideBar />
@@ -40,5 +40,9 @@ export default {
 
 <style lang="scss">
 @import "./assets/scss/main.scss";
+.main-back{
+  background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,0.896796218487395) 0%, rgba(97,45,253,0.5662640056022409) 92%);;
 
+}
 </style>

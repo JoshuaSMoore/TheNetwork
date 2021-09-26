@@ -1,75 +1,71 @@
 <template>
-  <div class="row">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
-      <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      </router-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarText"
-        aria-controls="navbarText"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon" />
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <div class>
-        </div>
-        <div class="searchbar">
-          <li>
-            <PostFinder />
-          </li>
-        </div>
-        <ul class="navbar-nav me-auto">
-        </ul>
-        <span class="navbar-text">
-          <button
-            class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0"
-            @click="login"
-            v-if="!user.isAuthenticated"
-          >
-            Login
-          </button>
+  <nav class="navbar  navbar-expand-lg navbar-dark bg-dark px-5">
+    <router-link class="navbar-brand" :to="{ name: 'Home' }">
+      <h3 class="text-center selectable">
+        TheNetwork
+      </h3>
+    </router-link>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon" />
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <div class>
+      </div>
+      <ul class="navbar-nav me-auto">
+      </ul>
+      <span class="navbar-text">
+        <button
+          class="btn selectable text-success lighten-30 text-uppercase my-2 my-lg-0"
+          @click="login"
+          v-if="!user.isAuthenticated"
+        >
+          Login
+        </button>
 
-          <div class="dropdown my-2 my-lg-0" v-else>
-            <div
-              class="dropdown-toggle selectable"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              id="authDropdown"
-            >
-              <img
-                :src="user.picture"
-                alt="user photo"
-                height="40"
-                class="rounded"
-              />
-              <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
-            </div>
-            <div
-              class="dropdown-menu p-0 list-group w-100"
-              aria-labelledby="authDropdown"
-            >
-              <router-link :to="{ name: 'Account' }">
-                <div class="list-group-item list-group-item-action hoverable">
-                  Manage Account
-                </div>
-              </router-link>
-              <div
-                class="list-group-item list-group-item-action hoverable text-danger"
-                @click="logout"
-              >
-                <i class="mdi mdi-logout"></i>
-                logout
+        <div class="dropdown my-2 my-lg-0" v-else>
+          <div
+            class="dropdown-toggle selectable"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="authDropdown"
+          >
+            <img
+              :src="user.picture"
+              alt="user photo"
+              height="40"
+              class="rounded"
+            />
+            <span class="mx-3 text-success lighten-30">{{ user.name }}</span>
+          </div>
+          <div
+            class="dropdown-menu p-0 list-group w-100"
+            aria-labelledby="authDropdown"
+          >
+            <router-link :to="{ name: 'Account' }">
+              <div class="list-group-item list-group-item-action hoverable">
+                Manage Account
               </div>
+            </router-link>
+            <div
+              class="list-group-item list-group-item-action hoverable text-danger"
+              @click="logout"
+            >
+              <i class="mdi mdi-logout"></i>
+              logout
             </div>
           </div>
-        </span>
-      </div>
-    </nav>
-  </div>
+        </div>
+      </span>
+    </div>
+  </nav>
 </template>
 
 <script>

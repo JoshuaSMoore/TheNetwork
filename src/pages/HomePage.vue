@@ -29,7 +29,8 @@ export default {
     return {
       posts: computed(() => AppState.posts),
       pics: computed(() => AppState.pics),
-      updated: computed(() => AppState.updated)
+      updated: computed(() => AppState.updated),
+      postsData: computed(() => AppState.postsData)
     }
   }
 }
