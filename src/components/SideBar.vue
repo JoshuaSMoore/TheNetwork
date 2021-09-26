@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar d-md-flex flex-column justify-content-between bg-dark">
+  <div class="sidebar d-md-flex flex-column justify-content-between">
     <div class="text-white py-2 text-center">
       <div class="searchbar">
         <li>
@@ -47,5 +47,6 @@ export default {
 .sidebar{
   height: 85vh;
   position: fixed;
+  background-color: rgba(46, 46, 46, 0.082);
 }
 </style>

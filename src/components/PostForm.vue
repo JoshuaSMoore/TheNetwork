@@ -3,7 +3,7 @@
     <div class="form-group">
       <label for="title">Description</label>
       <input type="text"
-             class="form-control bg-light"
+             class="form-control bg-light text"
              name="title"
              placeholder="Description"
              v-model="editable.body"

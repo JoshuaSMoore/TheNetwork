@@ -17,14 +17,6 @@
       </button>
     </div>
   </form>
-  <div>
-    <button :disabled="currentPage === 1" @click="getNewPost()" class="btn btn-secondary elevation-5">
-      Newer
-    </button>
-    <button @click="getOlderPost()" class="btn btn-secondary elevation-5">
-      Older
-    </button>
-  </div>
 </template>
 
 <script>
@@ -48,20 +40,6 @@ export default {
         }
       },
       postsData: computed(() => AppState.postsData),
-      async getOlderPost() {
-        try {
-          await postsService.getOlderPost()
-        } catch (error) {
-          Pop.toast('error', error)
-        }
-      },
-      async getNewPost() {
-        try {
-          await postsService.getNewPost()
-        } catch (error) {
-          Pop.toast('error', error)
-        }
-      }
     }
   }
 }

@@ -1,14 +1,16 @@
 <template>
   <div class="container-fluid text-center">
-    <div class=" row mb-3 text-light tshadow">
-      <img :src="profile.coverImg" class="cover-img">
-    </div>
-    <div class="row justify-content-center">
-      <div class="card text-dark profile-card mb-3 text-center" style="max-width: 20rem;">
-        <h5 class="card-title">
-          <img :src="profile.picture" class="img-fluid rounded-start shadow prof-pic" alt="...">
+      <div class="row cover-img img-fluid" :style="{backgroundImage: `url(${profile.coverImg})`}">
+        <div class="col-3">
+
+           <h3 class="text-center">
           {{ profile.name }}
-        </h5>
+           </h3>
+           <br>
+           <img class="rounded profile-img img-fluid" :src="profile.img" alt="//placehold.it/300x300" id="profile-img" >
+        </div>
+        <div class="col-6">
+
         <div class="" v-if="profile.graduated == true">
           <i class="mdi mdi-school f-20 " title="Alumni"></i>
         </div>
@@ -24,10 +26,16 @@
           <a :href="profile.github"><i class="mdi mdi-github f-20 selectable"></i></a>
           <a :href="profile.linkedin"><i class="mdi mdi-linkedin f-20 selectable"></i></a>
         </p>
+        </div>
       </div>
     </div>
-  </div>
   <div class="container-fluid">
+     <button :disabled="currentPage === 1" @click="getNewPost()" class="btn btn-secondary elevation-5">
+      Newer
+    </button>
+    <button @click="getOlderPost()" class="btn btn-secondary elevation-5">
+      Older
+    </button>
     <div class="row p-3s">
       <PostCard v-for="p in posts" :key="p.id" :post="p" />
       <div v-if="posts.length > 0">
@@ -49,6 +57,7 @@ import { profilesService } from '../services/ProfilesService.js'
 
 export default {
   setup() {
+    const account = computed(() => AppState.account)
     const route = useRoute()
     async function getPosts() {
       try {
@@ -65,10 +74,29 @@ export default {
       }
     })
     return {
+      account,
       user: computed(() => AppState.user),
       profile: computed(() => AppState.profile),
       posts: computed(() => AppState.posts),
-      postsData: computed(() => AppState.postsData)
+      postsData: computed(() => AppState.postsData),
+      url: computed(() => AppState.url),
+      like: computed(() => AppState.likes),
+      currentPage: computed(() => AppState.currentPage),
+       posts: computed(() => AppState.posts),
+         async getOlderPost() {
+        try {
+          await postsService.getOlderPost( { creatorId: route.params.id } )
+        } catch (error) {
+          Pop.toast('error', error)
+        }
+      },
+      async getNewPost() {
+        try {
+          await postsService.getNewPost( { creatorId: route.params.id } )
+        } catch (error) {
+          Pop.toast('error', error)
+        }
+      }
     }
   }
 }
@@ -85,5 +113,9 @@ export default {
 }
 .profile-card{
   background-color: rgba(60, 185, 223, 0.26);
+}
+.profile-img{
+  height: 100px;
+  width: 125px;
 }
 </style>

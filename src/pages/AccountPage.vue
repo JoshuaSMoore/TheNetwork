@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="col-5 text-start">
-        <div class="div edit-profile card border-light mb-3">
+        <div class="div edit-profile card border-warning mb-3">
           <div class=" card-body">
             <div class="text-start">
               <h5>
@@ -56,24 +56,24 @@
       </div>
       <div class="col-5 d-flex justify-content-end visually-hidden edit-field" id="edit-profile">
         <div>
-          <div class="card border-light mb-3">
+          <div class="card border-warning mb-3">
             <div class="card-body account-card">
               <fieldset>
                 <legend>
                   <form @submit.prevent="updateAccount()">
-                    <h5> Change profile Username</h5>
+                    <h6> Change profile Username</h6>
                     <input type="text" v-model="account.name" placeholder="Name"><br />
-                    <h5> Change your cover image</h5>
+                    <h6> Change your cover image</h6>
                     <input type="text" v-model="account.coverImg"><br />
-                    <h5> Change profile Picture</h5>
+                    <h6> Change profile Picture</h6>
                     <input type="text" v-model="account.github" placeholder="Github"><br />
-                    <h5> Change your Linkedin</h5>
+                    <h6> Change your Linkedin</h6>
                     <input type="text" v-model="account.picture" placholder="Picture"><br />
-                    <h5> Change your Github</h5>
+                    <h6> Change your Github</h6>
                     <input type="text" v-model="account.linkedin" placeholder="Linkedin"><br />
-                    <h5> Cohort</h5>
+                    <h6> Cohort</h6>
                     <input type="text" v-model="account.class" placeholder="Class"><br />
-                    <h5> Have you graduated?</h5>
+                    <h6> Have you graduated?</h6>
                     <input type="checkbox" class="form-check-input" id="flexCheckDefault" v-model="account.graduated" placeholder="Graduate"><br />
                     <textarea v-model="account.bio"
                               type="text"
@@ -130,9 +130,10 @@ img {
 }
 
 .card-body{
-  color:rgba(123, 226, 226, 0.89);
-  background-color:dimgrey;
-  border-color: rgba(62, 197, 197, 0.89);
+  color:rgb(49, 51, 51);
+  background-color: #1ba2f69d;
+  background-blend-mode: luminosity;
+  border-color: rgba(215, 218, 75, 0.89);
   min-width: 20rem;
   min-height: 75vh;
 }

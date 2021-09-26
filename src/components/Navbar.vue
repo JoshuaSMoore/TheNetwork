@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar  navbar-expand-lg navbar-dark bg-dark px-5">
+  <nav class="navbar  navbar-expand-lg navbar-dark  px-5">
     <router-link class="navbar-brand" :to="{ name: 'Home' }">
       <h3 class="text-center selectable">
         TheNetwork
@@ -110,6 +110,9 @@ a:hover {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+}
+.navbar{
+  background-color: #1ba2f6d5;
 }
 
 </style>

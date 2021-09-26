@@ -9,6 +9,8 @@ class PostsService {
     logger.log('query', query)
     const res = await api.get('api/posts' + convertToQuery(query))
     AppState.posts = res.data.posts.map(p => new Post(p))
+    AppState.older = res.data.older
+    AppState.newer = res.data.newer
     AppState.postsData = res.data
   }
 
