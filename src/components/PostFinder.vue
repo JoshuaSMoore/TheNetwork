@@ -40,7 +40,7 @@ export default {
           Pop.toast(error.message, 'error')
         }
       },
-      postsData: computed(() => AppState.postsData),
+      postsData: computed(() => AppState.postsData)
     }
   }
 }
