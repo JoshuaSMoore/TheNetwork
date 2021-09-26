@@ -1,20 +1,20 @@
 <template>
-<div class="Background">
-  <header>
-    <Navbar />
-  </header>
-  <main class="main-back">
-    <div class="row d-flex viewport">
-      <div class="col-md-2">
-        <SideBar />
+  <div class="Background">
+    <header>
+      <Navbar />
+    </header>
+    <main class="main-back">
+      <div class="row d-flex viewport">
+        <div class="col-md-2">
+          <SideBar />
+        </div>
+        <div class="col-md-10">
+          <router-view />
+        </div>
       </div>
-      <div class="col-md-10">
-        <router-view />
-      </div>
-    </div>
-  </main>
-  <footer>
-  </footer>
+    </main>
+    <footer>
+    </footer>
   </div>
   <Modal>
     <template #modal-title>
