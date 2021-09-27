@@ -9,7 +9,9 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content mod-new text-center text-info">
         <div class="modal-header">
-          <h5 class="title modal-title">New Blog Post</h5>
+          <h5 class="title modal-title">
+            New Blog Post
+          </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

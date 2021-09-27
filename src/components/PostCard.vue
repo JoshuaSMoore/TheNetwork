@@ -15,7 +15,7 @@
         <img :src="post.imgUrl" class="postImg img-fluid" alt="...">
       </div>
       <div class="">
-        <p class="card-text text-center" style="height: 3rem; overflow-y: scroll;">
+        <p class="card-text text-center">
           {{ post.body }}
         </p>
         <div class="text-center">
